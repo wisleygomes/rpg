@@ -1,98 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
- <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Study RPG</title>
-<link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<div class="app">
-<h1>🧙‍♂️ Study RPG</h1>
-<div class="player">
-<div class="avatar">🧠</div>
-<div class="stats">
-<div><strong>Nível <span id="level">1</span></strong> • XP <span id="xp">0</span>/100</div>
-<div class="bar"><span id="xpBar" style="width:0%"></span></div>
-<div class="bar" style="margin-top:6px"><span id="manaBar" style="width:100%;background:linear-gradient(90deg,#22d3ee,#0ea5e9)"></span></div>
-<div class="muted">Mana: <span id="manaText">100</span>/100</div>
-<div class="muted">Classe: <span id="className">Aprendiz do Conhecimento</span></div>
-</div>
-</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study RPG</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="app">
+        <h1>🧙‍♂️ Study RPG</h1>
 
+        <div class="player">
+          <div class="avatar">🧠</div>
+          <div class="stats">
+            <div>
+              <strong>Nível <span id="level">1</span></strong> • XP
+              <span id="xp">0</span>/100
+            </div>
+            <div class="bar"><span id="xpBar" style="width: 0%"></span></div>
+            <div class="bar" style="margin-top: 6px">
+              <span
+                id="manaBar"
+                style="
+                  width: 100%;
+                  background: linear-gradient(90deg, #22d3ee, #0ea5e9);
+                "
+              ></span>
+            </div>
+            <div class="muted">Mana: <span id="manaText">100</span>/100</div>
+            <div class="muted">
+              Classe: <span id="className">Aprendiz do Conhecimento</span>
+            </div>
+          </div>
+        </div>
 
-<div class="section">
-<strong>📜 Missões de Hoje</strong>
-<div class="quests" id="quests"></div>
-</div>
+        <div class="section">
+          <strong>📜 Missões de Hoje</strong>
+          <div class="quests" id="quests"></div>
+        </div>
 
+        <div class="section">
+          <strong>🎭 Escolha sua Classe</strong>
+          <div class="actions">
+            <button onclick="setClass('Curandeiro')">Curandeiro</button>
+            <button onclick="setClass('Estrategista')">Estrategista</button>
+            <button onclick="setClass('Executor')">Executor</button>
+          </div>
+        </div>
 
-<div class="section">
-<strong>🎭 Escolha sua Classe</strong>
-<div class="actions">
-<button onclick="setClass('Curandeiro')">Curandeiro</button>
-<button onclick="setClass('Estrategista')">Estrategista</button>
-<button onclick="setClass('Executor')">Executor</button>
-</div>
-</div>
+        <div class="section">
+          <strong>✨ Skills da Classe</strong>
+          <div class="quests" id="skills"></div>
+          <div class="actions" style="margin-top: 8px">
+            <button onclick="useSkill()">Usar Skill</button>
+          </div>
+        </div>
 
+        <div class="section actions">
+          <button onclick="study(25)">Estudar 25 min</button>
+          <button class="secondary" onclick="study(50)">Estudar 50 min</button>
+        </div>
 
-<div class="section">
-<strong>✨ Skills da Classe</strong>
-<div class="quests" id="skills"></div>
-<div class="actions" style="margin-top:8px">
-<button onclick="useSkill()">Usar Skill</button>
-</div>
-</div>
+        <div class="section">
+          <strong>🎒 Inventário</strong>
+          <div class="quests" id="inventory"></div>
+          <div class="actions" style="margin-top: 8px">
+            <button onclick="usePotion('mana')">Usar Poção de Mana</button>
+            <button onclick="usePotion('xp')">Usar Pergaminho de XP</button>
+          </div>
+        </div>
 
+        <div class="section">
+          <strong>🏪 Loja</strong>
+          <div class="quests" id="shop">
+            <div class="quest">
+              <span>🔵 Poção de Mana (+40)</span>
+              <button onclick="buyItem('mana')">Comprar (30 XP)</button>
+            </div>
+            <div class="quest">
+              <span>📜 Pergaminho de XP (+40)</span>
+              <button onclick="buyItem('xp')">Comprar (50 XP)</button>
+            </div>
+          </div>
+        </div>
 
-<div class="section"></strong>
-<div class="actions">
-<button onclick="setClass('Curandeiro')">Curandeiro</button>
-<button onclick="setClass('Estrategista')">Estrategista</button>
-<button onclick="setClass('Executor')">Executor</button>
-</div>
-</div>
+        <div class="section">
+          <strong>🧙 NPC Lojista</strong>
+          <div class="npc" id="npcTalk">"Bem-vindo, aventureiro!"</div>
+        </div>
 
+        <div class="section">
+          <strong>📖 Registro</strong>
+          <div class="log" id="log"></div>
+        </div>
+      </div>
+    </div>
 
-<div class="section actions">
-<button onclick="study(25)">Estudar 25 min</button>
-<button class="secondary" onclick="study(50)">Estudar 50 min</button>
-</div>
+    <footer class="footer">
+      <p>© 2026 • Wisley Gomes</p>
+    </footer>
 
-
-<div class="section">
-<strong>🎒 Inventário</strong>
-<div class="quests" id="inventory"></div>
-<div class="actions" style="margin-top:8px">
-<button onclick="usePotion('mana')">Usar Poção de Mana</button>
-<button onclick="usePotion('xp')">Usar Pergaminho de XP</button>
-</div>
-</div>
-
-
-<div class="section">
-<strong>🏪 Loja</strong>
-<div class="quests" id="shop">
-<div class="quest"><span>🔵 Poção de Mana (+40)</span><button onclick="buyItem('mana')">Comprar (30 XP)</button></div>
-<div class="quest"><span>📜 Pergaminho de XP (+40)</span><button onclick="buyItem('xp')">Comprar (50 XP)</button></div>
-</div>
-</div>
-
-
-<div class="section">
-<strong>🧙 NPC Lojista</strong>
-<div class="npc" id="npcTalk">"Bem-vindo, aventureiro!"</div>
-</div>
-
-
-<div class="section">
-<strong>📖 Registro</strong>
-<div class="log" id="log"></div>
-</div>
-</div>
-
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -6,6 +6,7 @@
   --text: #e5e7eb;
   --muted: #94a3b8;
 }
+
 * {
   box-sizing: border-box;
   font-family:
@@ -14,16 +15,30 @@
     Segoe UI,
     Roboto;
 }
+
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   background: radial-gradient(1200px 600px at 10% 10%, #1e1b4b, #020617);
   color: var(--text);
   display: flex;
+  flex-direction: column;
+}
+
+/* CENTRALIZA O APP */
+.page {
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 16px;
 }
+
 .app {
   max-width: 420px;
   width: 100%;
@@ -32,15 +47,18 @@ body {
   padding: 16px;
   box-shadow: 0 20px 40px #0006;
 }
+
 h1 {
   margin: 0 0 8px;
   font-size: 1.3rem;
 }
+
 .player {
   display: flex;
   gap: 12px;
   align-items: center;
 }
+
 .avatar {
   width: 64px;
   height: 64px;
@@ -51,9 +69,11 @@ h1 {
   justify-content: center;
   font-size: 28px;
 }
+
 .stats {
   flex: 1;
 }
+
 .bar {
   height: 10px;
   background: #020617;
@@ -61,22 +81,27 @@ h1 {
   overflow: hidden;
   margin-top: 6px;
 }
+
 .bar span {
   display: block;
   height: 100%;
   background: linear-gradient(90deg, var(--accent), var(--primary));
 }
+
 .muted {
   color: var(--muted);
   font-size: 0.85rem;
 }
+
 .section {
   margin-top: 14px;
 }
+
 .quests {
   display: grid;
   gap: 8px;
 }
+
 .quest {
   background: #020617;
   border-radius: 14px;
@@ -85,9 +110,11 @@ h1 {
   justify-content: space-between;
   align-items: center;
 }
+
 .quest.done {
   opacity: 0.6;
 }
+
 button {
   background: var(--primary);
   color: white;
@@ -97,19 +124,23 @@ button {
   font-weight: 600;
   cursor: pointer;
 }
+
 button.secondary {
   background: #020617;
   border: 1px solid #312e81;
 }
+
 .actions {
   display: flex;
   gap: 8px;
 }
+
 .log {
   max-height: 120px;
   overflow: auto;
   font-size: 0.85rem;
 }
+
 .npc {
   background: #020617;
   border: 1px solid #312e81;
@@ -117,4 +148,12 @@ button.secondary {
   padding: 12px;
   font-size: 0.9rem;
   color: #a5b4fc;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  opacity: 0.6;
 }
