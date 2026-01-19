@@ -1,7 +1,13 @@
-# 🧙‍♂️ Study RPG — Gamificação de Estudos
+p# 🧙‍♂️ Study RPG — Gamificação de Estudos
+
+<p align="center">
+ <img alt="rpg" src="./assets/capa.jpg" width="40%">
+ </p>
 
 Transforme seus estudos em uma jornada épica de RPG.  
 Evolua níveis, escolha classes, use skills, gerencie recursos e complete missões **estudando de verdade**.
+
+👉 [jogue online agora mesmo](https://wisleygomes.github.io/rpg)
 
 ---
 
